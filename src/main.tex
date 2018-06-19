@@ -7,6 +7,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{subcaption}
 
 
 \newcommand{\R}{\mathbb{R}}
@@ -282,9 +284,9 @@
     
     \subsection{Данные для экспериментов}
     
-    В качестве данных для экспериментов были использованы графы размером от 39 до 10000 вершин.
+    В качестве данных для экспериментов были использованы графы размером от 100 до 10000 вершин.
     Все графы являются либо модельными, либо реальными графами, часто используемыми для исследования алгоритмов. Данные о графах приведены в таблице \ref{table_graphs}.
-    Граф SBM (\textit{Stochastic Block Model}) является модельным графом с 900 вершинами. Сперва вершины разбиваются на три группы, а затем ребра добавляются случайным образом: между вершинами одной группы -- с вероятностью $p_{in}$, между вершинами разных групп -- с вероятностью $p_{out}$. Ориентировочные значения $p_{in}$ и $p_{out}$ в наших экспериментах: $p_{in} = 0.1$, $p_{out} \in [0.01, 0.03]$.
+    Граф SBM (\textit{Stochastic Block Model}) является модельным графом с 900 вершинами. Сперва вершины разбиваются на три группы, а затем ребра добавляются случайным образом: между вершинами одной группы -- с вероятностью $p_{in}$, между вершинами разных групп -- с вероятностью $p_{out}$. Ориентировочные значения $p_{in}$ и $p_{out}$ в наших экспериментах: $p_{in} \in \{0.08, 0.1\}$, $p_{out} \in \{0.01, 0.03\}$.
     
     \begin{table}
     \begin{center}
@@ -351,7 +353,41 @@
 
     \subsubsection{Задача классификации}
 
-    Для данной задачи мы проверяли работу алгоритма на двух графах: BlogCatalog и SBM.
+    Для данной задачи мы проверяли работу алгоритма на двух графах: BlogCatalog и SBM. Результаты представлены на рисунке \ref{fig:clas}.
+    
+    \begin{figure}
+    \begin{subfigure}{.5\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{src/images/Node_classification_blog_catalog.pdf}
+    \caption{BlogCatalog}
+    \label{fig:clas_blog}
+    \end{subfigure}
+    \begin{subfigure}{.5\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{src/images/Node_classification_sbm-01-001.pdf}
+    \caption{SBM $p_{in}=0.1$, $p_{out}=0.01$}
+    \label{fig:clas_sbm1}
+    \end{subfigure}
+    \\[1ex]
+    \begin{subfigure}{.5\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{src/images/Node_classification_sbm-01-003.pdf}
+    \caption{SBM $p_{in}=0.1$, $p_{out}=0.03$}
+    \label{fig:clas_sbm2}
+    \end{subfigure}
+    \begin{subfigure}{.5\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{src/images/Node_classification_sbm-008-003.pdf}
+    \caption{SBM $p_{in}=0.08$, $p_{out}=0.03$}
+    \label{fig:clas_sbm3}
+    \end{subfigure}
+    \caption{Результаты классификации}
+    \label{fig:clas}
+    \end{figure}
+    
+    \subsubsection{Задача кластеризации}
+
+    Для данной задачи мы проверяли работу алгоритма на двух графах: BlogCatalog и SBM. Результаты представлены на рисунке \ref{fig:clas}.
     
     \section{Выводы}
     
